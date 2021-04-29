@@ -26,18 +26,37 @@ class MainActivity : AppCompatActivity() {
         //obter a mensagem
         val textInputEditNome = findViewById<EditText>(R.id.TextInputEditNome)
         val nome = textInputEditNome.text.toString()
+        if(nome.isBlank()){
+            textInputEditNome.error = "Preencha este campo"
 
+            return
+        }
 
         val textInputEditEmail = findViewById<EditText>(R.id.TextInputEditEmail)
         val email = textInputEditEmail.text.toString()
+        if(email.isBlank()){
+            textInputEditEmail.error = "Preencha este campo"
+
+            return
+        }
 
 
         val textInputEditTele = findViewById<EditText>(R.id.TextInputEditTele)
         val tele = textInputEditTele.text.toString()
+        if(tele.isBlank()){
+            textInputEditTele.error = "Preencha este campo"
+
+            return
+        }
 
 
         val textInputEditIdade = findViewById<EditText>(R.id.TextInputEditIdade)
         val idade = textInputEditIdade.text.toString()
+        if(idade.isBlank()){
+            textInputEditIdade.error = "Preencha este campo"
+
+            return
+        }
 
         //passar entre atividades
         val intent = Intent(this,MostrarActivity::class.java)
