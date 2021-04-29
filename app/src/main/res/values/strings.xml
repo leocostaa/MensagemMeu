@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">MensagemMeu</string>
     <string name="mensagem_recebida">Mensagem Recebida</string>
+    <string name="nome">Nome</string>
+    <string name="email">Email</string>
+    <string name="telem_vel">Telemóvel</string>
+    <string name="idade">Idade</string>
+    <string name="enviar">Enviar</string>
 
 </resources>
