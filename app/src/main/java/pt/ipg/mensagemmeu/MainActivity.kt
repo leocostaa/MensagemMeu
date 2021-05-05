@@ -23,20 +23,21 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun enviaMensagem(view: View){
-        //obter a mensagem
+
+        var dadoscorretos = true
         val textInputEditNome = findViewById<EditText>(R.id.TextInputEditNome)
         val nome = textInputEditNome.text.toString()
         if(nome.isBlank()){
-            textInputEditNome.error = "Preencha este campo"
-
+            textInputEditNome.error = getString(R.string.obrigatorionome)
+            dadoscorretos = false
             return
         }
 
         val textInputEditEmail = findViewById<EditText>(R.id.TextInputEditEmail)
         val email = textInputEditEmail.text.toString()
         if(email.isBlank()){
-            textInputEditEmail.error = "Preencha este campo"
-
+            textInputEditEmail.error = getString(R.string.obrigatorioemail)
+            dadoscorretos = false
             return
         }
 
@@ -44,27 +45,29 @@ class MainActivity : AppCompatActivity() {
         val textInputEditTele = findViewById<EditText>(R.id.TextInputEditTele)
         val tele = textInputEditTele.text.toString()
         if(tele.isBlank()){
-            textInputEditTele.error = "Preencha este campo"
-
+            textInputEditTele.error = getString(R.string.obrigatoriotele)
+            dadoscorretos = false
             return
         }
 
 
         val textInputEditIdade = findViewById<EditText>(R.id.TextInputEditIdade)
-        val idade = textInputEditIdade.text.toString()
-        if(idade.isBlank()){
-            textInputEditIdade.error = "Preencha este campo"
-
+        val idade = textInputEditIdade.text.toString().toIntOrNull()
+        if(idade == null){
+            textInputEditIdade.error = getString(R.string.obrigatorioidade)
+            dadoscorretos = false
             return
         }
 
-        //passar entre atividades
-        val intent = Intent(this,MostrarActivity::class.java)
-        intent.putExtra(INFO_EXTRA_NOME,nome)
-        intent.putExtra(INFO_EXTRA_EMAIL,email)
-        intent.putExtra(INFO_EXTRA_TELE,tele)
-        intent.putExtra(INFO_EXTRA_IDADE,idade)
+        if(dadoscorretos) {
+            //passar entre atividades
+            val intent = Intent(this, MostrarActivity::class.java)
+            intent.putExtra(INFO_EXTRA_NOME, nome)
+            intent.putExtra(INFO_EXTRA_EMAIL, email)
+            intent.putExtra(INFO_EXTRA_TELE, tele)
+            intent.putExtra(INFO_EXTRA_IDADE, idade)
 
-        startActivity(intent)
+            startActivity(intent)
+        }
     }
 }

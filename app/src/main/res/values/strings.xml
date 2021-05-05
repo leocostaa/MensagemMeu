@@ -6,5 +6,9 @@
     <string name="telem_vel">Telemóvel</string>
     <string name="idade">Idade</string>
     <string name="enviar">Enviar</string>
+    <string name="obrigatoriotele">Preencha o telemovel</string>
+    <string name="obrigatorioemail">Preencha o email</string>
+    <string name="obrigatorionome">Preencha o nome</string>
+    <string name="obrigatorioidade">Preencha a idade</string>
 
 </resources>
